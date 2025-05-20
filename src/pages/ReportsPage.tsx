@@ -7,17 +7,19 @@ type ReportsPageProps = {
 };
 
 const ReportsPage: FC<ReportsPageProps> = ({ logUser }) => {
+  const apiUrl = import.meta.env.VITE_API_BASE;
   return (
     <div className="reports-page">
       <div className="reports-page-heading">
         Ваши отчеты
       </div>
       <div className="reports-area">
+        
         {logUser.reports.length > 0 ? (
           logUser.reports.slice().reverse().map((filename, idx) => (
             <div key={idx}>
               <a className="reports-file"
-                href={`/reports/${filename}`}
+                href={`${apiUrl}/reports/${filename}`}
                 download
               >
                 📄 {filename}
