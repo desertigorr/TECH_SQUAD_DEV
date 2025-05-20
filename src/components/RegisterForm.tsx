@@ -16,7 +16,7 @@ const RegisterForm: FC<RegisterFormProps> = ({ fetchUsers, setIsRegistered, user
     images: [],
     reports: [],
   });
-  
+  const apiUrl = import.meta.env.VITE_API_BASE;
   const [registerError, setRegisterError] = useState("");
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,7 +35,6 @@ const RegisterForm: FC<RegisterFormProps> = ({ fetchUsers, setIsRegistered, user
     };
     
     try {
-      const apiUrl = import.meta.env.VITE_API_BASE;
       const response = await fetch(`${apiUrl}/users`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -46,6 +45,7 @@ const RegisterForm: FC<RegisterFormProps> = ({ fetchUsers, setIsRegistered, user
       setIsRegistered(true);
       } catch (err) {
         console.error(err);
+        console.log(apiUrl)
         setRegisterError("Ошибка при регистрации");
       };
   };

@@ -6,8 +6,9 @@ type ReportsPageProps = {
   };
 };
 
+const apiUrl = import.meta.env.VITE_API_BASE;
 const ReportsPage: FC<ReportsPageProps> = ({ logUser }) => {
-  const apiUrl = import.meta.env.VITE_API_BASE;
+ 
   return (
     <div className="reports-page">
       <div className="reports-page-heading">
