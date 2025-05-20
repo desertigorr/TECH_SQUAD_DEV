@@ -46,7 +46,8 @@ const ImagePage: FC<ImagePageProps> = ({logUser, setLogUser, fetchUsers}) => {
     formData.append("userId", logUser.id.toString());
   
     try {
-      const response = await fetch("/upload", {
+      const apiUrl = import.meta.env.VITE_API_BASE;
+      const response = await fetch(`${apiUrl}/upload`, {
         method: "POST",
         body: formData,
       });

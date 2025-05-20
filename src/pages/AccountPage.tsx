@@ -24,7 +24,8 @@ const AccountPage: FC<AccountPageProps> = ({logUser, setLogUser, setIsEntered, n
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`/users/${logUser.id}`, {
+      const apiUrl = import.meta.env.VITE_API_BASE;
+      const response = await fetch(`${apiUrl}/users/${logUser.id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
