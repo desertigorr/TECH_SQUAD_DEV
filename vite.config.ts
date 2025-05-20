@@ -38,12 +38,36 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     server: {
       proxy: {
-        '/users': env.VITE_API_BASE,
-        '/upload': env.VITE_API_BASE,
-        '/images': env.VITE_API_BASE,
-        '/defects': env.VITE_API_BASE,
-        '/replace-image': env.VITE_API_BASE,
-        '/reports': env.VITE_API_BASE,
+        '/users': {
+          target: env.VITE_API_BASE,
+          changeOrigin: true,
+          secure: false,
+        },
+        '/upload': {
+          target: env.VITE_API_BASE,
+          changeOrigin: true,
+          secure: false,
+        },
+        '/images': {
+          target: env.VITE_API_BASE,
+          changeOrigin: true,
+          secure: false,
+        },
+        '/defects': {
+          target: env.VITE_API_BASE,
+          changeOrigin: true,
+          secure: false,
+        },
+        '/replace-image': {
+          target: env.VITE_API_BASE,
+          changeOrigin: true,
+          secure: false,
+        },
+        '/reports': {
+          target: env.VITE_API_BASE,
+          changeOrigin: true,
+          secure: false,
+        },
       },
     },
     build: {
@@ -51,3 +75,4 @@ export default defineConfig(({ mode }) => {
     },
   };
 });
+
