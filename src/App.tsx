@@ -36,15 +36,16 @@ const App = () => {
   const [isEntered, setIsEntered] = useState(localStorage.getItem('isEntered') === 'true');
   const [isRegistered, setIsRegistered] = useState(true);
 
-  const fetchUsers = async () => {
-    try {
-      const response = await fetch("/users/");
-      const data: UserType[] = await response.json();
-      setUsers(data);
-    } catch {
-      console.log("Ошибка при загрузке данных!");
-    };
-  };
+const fetchUsers = async () => {
+  try {
+    const apiUrl = import.meta.env.VITE_API_BASE;
+    const response = await fetch(`${apiUrl}/users/`);
+    const data: UserType[] = await response.json();
+    setUsers(data);
+  } catch {
+    console.log("Ошибка при загрузке данных!");
+  }
+};
 
   useEffect(() => {  
     fetchUsers();
