@@ -33,6 +33,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
+  console.log('API BASE:', env.VITE_API_BASE); // Выводим URL в консоль для проверки
 
   return {
     plugins: [react()],
@@ -42,31 +43,7 @@ export default defineConfig(({ mode }) => {
           target: env.VITE_API_BASE,
           changeOrigin: true,
           secure: false,
-        },
-        '/upload': {
-          target: env.VITE_API_BASE,
-          changeOrigin: true,
-          secure: false,
-        },
-        '/images': {
-          target: env.VITE_API_BASE,
-          changeOrigin: true,
-          secure: false,
-        },
-        '/defects': {
-          target: env.VITE_API_BASE,
-          changeOrigin: true,
-          secure: false,
-        },
-        '/replace-image': {
-          target: env.VITE_API_BASE,
-          changeOrigin: true,
-          secure: false,
-        },
-        '/reports': {
-          target: env.VITE_API_BASE,
-          changeOrigin: true,
-          secure: false,
+          rewrite: (path) => path.replace(/^\/users/, '/users')
         },
       },
     },
@@ -75,4 +52,5 @@ export default defineConfig(({ mode }) => {
     },
   };
 });
+
 
