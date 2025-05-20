@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "http://500684b....serveo.net/:path*"
+      "destination": "https://500684b1feefb60b78dd0311dcedc4f9.serveo.net"
     }
   ]
 }
